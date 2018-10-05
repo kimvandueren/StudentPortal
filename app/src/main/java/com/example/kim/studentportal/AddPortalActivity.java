@@ -14,8 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class AddPortalActivity extends AppCompatActivity {
-    public ArrayList<String> urlList = new ArrayList<>();
-    public ArrayList<String> titleList = new ArrayList<>();
+    String urlText;
+    String titleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +30,17 @@ public class AddPortalActivity extends AppCompatActivity {
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                //mUrlText.add(editUrlText.getText().toString());
-                titleList.add(editTitleText.getText().toString());
+                urlText = editUrlText.getText().toString();
+                titleText = editTitleText.getText().toString();
 
                 editUrlText.setText("http://");
                 editTitleText.setText("");
 
-                System.out.println(urlList);
-                System.out.println(titleList);
+                Intent intent = new Intent(AddPortalActivity.this, OverviewActivity.class);
+                intent.putExtra("textUrl", urlText);
+                intent.putExtra("textTitle", titleText);
+
+                startActivity(intent);
             }
         });
 
