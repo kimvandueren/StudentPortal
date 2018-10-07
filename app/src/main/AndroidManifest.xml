@@ -22,7 +22,8 @@
         <activity
             android:name=".AddPortalActivity"
             android:label="@string/title_activity_add_portal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WebviewActivity"></activity>
     </application>
 
 </manifest>

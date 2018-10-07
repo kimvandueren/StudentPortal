@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ public class OverviewActivity extends AppCompatActivity {
 
     private PortalObjectAdapter mAdapter;
     private RecyclerView recyclerView;
-    private TextView textView;
     String urlText;
     String titleText;
 
@@ -42,6 +42,11 @@ public class OverviewActivity extends AppCompatActivity {
         mAdapter = new PortalObjectAdapter(this, mPortalObjects);
         recyclerView.setAdapter(mAdapter);
 
+        mPortalObjects.add(new PortalObject("https://vlo.informatica.hva.nl", "VLO"));
+        mPortalObjects.add(new PortalObject("https://rooster.hva.nl", "Rooster"));
+        mPortalObjects.add(new PortalObject("https://email.hva.nl", "E-mail"));
+        mPortalObjects.add(new PortalObject("https://www.android-development.app/#!/home", "Android Development"));
+
         if(extras != null){
             urlText = extras.getString("textUrl");
             titleText = extras.getString("textTitle");
@@ -54,14 +59,6 @@ public class OverviewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(OverviewActivity.this, AddPortalActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        textView = findViewById(R.id.titleTextView);
-        textView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
             }
         });
     }

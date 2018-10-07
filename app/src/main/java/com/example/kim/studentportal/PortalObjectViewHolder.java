@@ -11,7 +11,7 @@ public class PortalObjectViewHolder extends RecyclerView.ViewHolder {
 
     public PortalObjectViewHolder(@NonNull View itemView) {
         super(itemView);
-        titleText = itemView.findViewById(R.id.titleTextView);
+        titleText = itemView.findViewById(R.id.titleTextButton);
         view = itemView;
     }
 }
